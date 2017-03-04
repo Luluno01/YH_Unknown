@@ -74,6 +74,7 @@
       if(fcnt - current_frame == 1) return; //Last frame
       $($("#frames").children()[current_frame]).fadeOut(300);
       $($("#frames").children()[++current_frame]).fadeIn(300);
+      setTitle();
       if(window.frames[current_frame].onShown) window.frames[current_frame].onShown(current_frame - 1);
       document.dispatchEvent(ev);
     }
@@ -93,6 +94,7 @@
         if(window.frames[frm].onShown) window.frames[frm].onShown(from);
         document.dispatchEvent(ev);
         current_frame = frm;
+        setTitle();
         return frm;
       }
       if(typeof frm == "string")
@@ -103,6 +105,7 @@
           if($($("#frames").children()[i])[0].id != frm) $($("#frames").children()[i]).fadeOut(300);
           else current_frame = i;
         }
+        setTitle();
         $(frm).fadeIn(300);
         if(window.frames[frm].onShown) window.frames[frm].onShown(from);
         document.dispatchEvent(ev);
@@ -118,7 +121,13 @@
         $($("#frames").children()[i]).fadeOut(300);
         current_frame = -1;
       }
+      setTitle();
       return i;
+    }
+
+    function setTitle(title)
+    {
+      window.parent.document.title = current_frame != -1 ? (title || window.frames[current_frame].document.title), "Rua";
     }
 
   </script>
