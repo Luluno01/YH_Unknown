@@ -127,7 +127,7 @@
 
     function setTitle(title)
     {
-      window.parent.document.title = current_frame != -1 ? (title || window.frames[current_frame].document.title), "Rua";
+      window.parent.document.title = (current_frame != -1) ? (title || window.frames[current_frame].document.title): "Rua";
     }
 
   </script>
