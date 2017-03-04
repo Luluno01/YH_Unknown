@@ -94,7 +94,7 @@
         if(window.frames[frm].onShown) window.frames[frm].onShown(from);
         document.dispatchEvent(ev);
         current_frame = frm;
-        setTitle(); 
+        setTitle();
         return frm;
       }
       if(typeof frm == "string")
