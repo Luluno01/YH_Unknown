@@ -1,0 +1,23 @@
+#frames>iframe
+{
+  display: none;
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  float:left;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#spin
+{
+  background: #FFFFFF;
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  float:left;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}

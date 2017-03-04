@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Collection</title>
+
+    <link href="/favicon.ico" rel="shortcut icon">
+
+    <!-- link all the styles -->
+    <link rel="stylesheet" href="css/uikit.min.css"/>
+    <link rel="stylesheet" href="css/iconfont.css"/>
+    <link rel="stylesheet" href="css/components/dotnav.css"/>
+    <link rel="stylesheet" href="css/font.css"/>
+    <link rel="stylesheet" href="css/rbutton.css"/>
+    <link rel="stylesheet" href="css/sidemask.css"/>
+    <link rel="stylesheet" href="css/unselectable.css"/>
+    <link rel="stylesheet" href="css/cust_components/checkbox.css"/>
+
+    <!-- link all the scripts -->
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/cust_components/guid.js"></script>
+    <script src="js/dataCollector.js"></script>
+    <script src="js/framecallback.js"></script>
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body class="unselectable">
+    <!-- Navigator -->
+    <div class="uk-height-viewport uk-flex uk-flex-middle" style="position: fixed; right: 10px;">
+      <ul id="switcher" class="uk-dotnav uk-flex-column" data-uk-switcher="{connect:'#qn', animation: 'slide-horizontal', swiping: false}">
+        <li><a href="#">Rua1</a></li>
+        <li><a href="#">Rua2</a></li>
+        <li><a href="#">Rua3</a></li>
+        <li><a href="#">Rua4</a></li>
+      </ul>
+    </div>
+
+    <div id="stage1" class="sidemask">
+      <div class="uk-container uk-container-center uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column">
+        <ul id="qn" class="uk-switcher">
+          <li>
+            <h1>您的性别：</h1>
+            <div class="uk-text-center">
+              <div class="uk-container uk-container-center">
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+                <button class="uk-button rbutton-big" data-uk-switcher-item="next" onclick="pushData('gender', 'male');"><i class="uk-icon-mars"></i><p>男</p></button>
+                <button class="uk-button rbutton-big" data-uk-switcher-item="next" onclick="pushData('gender', 'female');"><i class="uk-icon-venus"></i><p>女</p></button>
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+              </div>
+            </div>
+            <div class="uk-container uk-container-center">
+              <div class="uk-grid">
+                <div class="uk-panel uk-width-1-2" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous" disabled><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
+                <!-- div class="uk-panel uk-width-1-2" style="text-align: right;"><button class="uk-button" data-uk-switcher-item="next" disabled>下一步</button></div -->
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <h1>您的年龄：</h1>
+            <div class="uk-text-center">
+              <div class="uk-container uk-container-center">
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+                <button id="age0" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '1');"><i class="iconfont icon-kid"></i></br>小朋友</button>
+                <button id="age1" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '2');"><i class="iconfont icon-boy"></i></br>小哥</button>
+                <p></p>
+                <button id="age2" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '3')"><i class="iconfont icon-manbeard"></i></br>叔叔</button>
+                <button id="age3" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '4');"><i class="iconfont icon-manold"></i></br>爷爷</button>
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+              </div>
+            </div>
+            <div class="uk-container uk-container-center">
+              <div class="uk-grid">
+                <div class="uk-panel uk-width-1-2" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous"><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
+                <div class="uk-panel uk-width-1-2" style="text-align: right;"></div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <h1>出行方式：</h1>
+            <div class="uk-text-center">
+              <div class="uk-container uk-container-center">
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'alone');submitData_0();"><i class="iconfont icon-man"></i></br>独自</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'couple');submitData_0();"><i class="iconfont icon-couple"></i></br>情侣</button>
+                <p></p>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'friend');submitData_0();"><i class="iconfont icon-friend"></i></br>朋友</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'family');submitData_0();"><i class="iconfont icon-home"></i></br>家人</button>
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+              </div>
+            </div>
+            <div class="uk-container uk-container-center">
+              <div class="uk-grid">
+                <div class="uk-panel uk-width-1-2" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous"><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
+                <div class="uk-panel uk-width-1-2" style="text-align: right;"></div>
+              </div>
+            </div>
+          </li>
+
+          <li id="checkarea">
+            <h1>选择景点：</h1>
+            <div class="uk-text-center">
+              <div class="uk-container uk-container-center">
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+                <form class="uk-form">
+                  <fieldset>
+                    <ul id="usercheck" class="uk-list tg-list">
+                    </ul>
+                  </fieldset>
+                </form>
+                <hr class="sidemask-big" style="width: 80vw;"></hr>
+              </div>
+            </div>
+            <div class="uk-container uk-container-center">
+              <div class="uk-grid">
+                <div class="uk-panel uk-width-1-2" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous"><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
+                <div class="uk-panel uk-width-1-2" style="text-align: right;"><button class="uk-button" onclick="submitData_1();">下一步 <i class="uk-icon-arrow-circle-right"></i></button></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>

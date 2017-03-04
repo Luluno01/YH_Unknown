@@ -1,0 +1,35 @@
+#map
+{
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  font-family:"微软雅黑";
+}
+
+#topnav
+{
+  box-shadow: 1px 1px 15px #CCC;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 1;
+}
+
+#topnav .uk-dropdown
+{
+  box-shadow: 7px 3px 15px -1px #CCC;
+}
+
+#bottomnav
+{
+  box-shadow: 1px -1px 15px #CCC;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  z-index: 1;
+}
+
+.uk-navbar-nav>li>a
+{
+  cursor: pointer!important;
+}
