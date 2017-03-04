@@ -65,7 +65,7 @@ function submitData_0()
 
   stage2_response = $.ajax(
   {
-    url: "http://tourguide.tpddns.cn:8888/tags/",
+    url: "https://tourguide.tpddns.cn:8888/tags/",
     method: "POST",
     type: "POST",
     dataType: "json",
