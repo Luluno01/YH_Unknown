@@ -90,16 +90,17 @@ function getCheckPanel(data, id)
 
 var check_data = [["芙蓉湖", "FurongLake.jpg", "Default Content", 1], ["情人谷", "Qingren.jpg", "Default Content", 1], ["芙蓉隧道", "FurongTunnel.jpg", "Default Content", 1], ["海韵理工","Haiyun.jpg", "Default Content", 1]];
 var user_checked = [];
-var int;
+var int_data_get, int_img_com;
 
 function dataIsGet()
 {
   if(check_data)
   {
-     clearInterval(int);
+     clearInterval(int_data_get);
      checkDataHandler(function()
      {
        $("#usercheck").data("grid").update();
+       int_img_com = setInterval("imgIsComplete();", 500);
        window.parent.toggleLoad();
      });
   }
@@ -111,6 +112,16 @@ function checkDataHandler(callback)
   check_data.forEach(function(elem, i){$("#usercheck").append(getCheckPanel(check_data[i], i));});
   onCheckListShown();
   if(typeof callback == "function") callback();
+}
+
+function imgIsComplete()
+{
+  for(var i = 0; i < check_data.length; i++)
+  {
+    if(!($("#usercheck > div:nth-child(" + (i + 1) + ") > div > div.uk-panel-teaser > img")[0].complete)) return;
+  }
+  $("#usercheck").data("grid").update();
+  clearInterval(int_img_com);
 }
 
 function submitData_1()
@@ -148,7 +159,7 @@ $(document).ready(function()
         adjustAgeButton();
         break;
       case 3:
-        int = setInterval("dataIsGet();", 1000);
+        int_data_get = setInterval("dataIsGet();", 1000);
         break;
       default:
         ;
