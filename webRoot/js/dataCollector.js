@@ -74,22 +74,21 @@ function submitData_0()
 }
 
 //li[3]
-function getCheckPanel(title, desc, state, id)
+function getCheckPanel(data, id)
 {
-  if(typeof id != "string" && typeof id != "number") return false;
   return '<div>' +
     '<div class="uk-panel uk-panel-box">' +
-      '<div class="uk-panel-badge uk-badge ' + ((state == 0) ? "uk-badge-danger" : "uk-badge-success") + '">' + ((state == 0) ? "拥挤" : "稀疏") + '</div>' +
+      '<div class="uk-panel-badge uk-badge ' + ((data[3] == 0) ? "uk-badge-danger" : "uk-badge-success") + '">' + ((data[3] == 0) ? "拥挤" : "稀疏") + '</div>' +
       '<div class="uk-panel-teaser">' +
-        '<img src="img/01/' + escape(title) + '.jpg" alt="preview image">' +
+        '<img src="img/01/' + data[1] + '" alt="preview image">' +
       '</div>' +
-      '<h3 class="uk-panel-title">' + title + '</h3>' +
-      desc +
+      '<h3 class="uk-panel-title">' + data[0] + '</h3>' +
+      data[2] +
     '</div>' +
   '</div>';
 }
 
-var check_data = ["芙蓉湖", "情人谷", "芙蓉隧道", "海韵理工"];
+var check_data = [["芙蓉湖", "FurongLake.jpg", "Default Content", 1], ["情人谷", "Qingren.jpg", "Default Content", 1], ["芙蓉隧道", "FurongTunnel.jpg", "Default Content", 1], ["海韵理工","Haiyun.jpg", "Default Content", 1]];
 var user_checked = [];
 var int;
 
@@ -109,7 +108,7 @@ function dataIsGet()
 function checkDataHandler(callback)
 {
   $("#usercheck").empty();
-  check_data.forEach(function(elem, i){$("#usercheck").append(getCheckPanel(check_data[i], "Default content", 1, i));});
+  check_data.forEach(function(elem, i){$("#usercheck").append(getCheckPanel(check_data[i], i));});
   onCheckListShown();
   if(typeof callback == "function") callback();
 }
@@ -121,7 +120,7 @@ function submitData_1()
   {
     if($($(this).children()[0]).hasClass("press")) // This panel is pressed (checked)
     {
-      user_checked.push(check_data[index]);
+      user_checked.push(check_data[index][0]);
     }
   });
   if(!user_checked.length)
