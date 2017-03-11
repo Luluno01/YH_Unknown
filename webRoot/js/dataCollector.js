@@ -74,14 +74,19 @@ function submitData_0()
 }
 
 //li[3]
-function getCheckBox(title, id)
+function getCheckPanel(title, desc, state, id)
 {
   if(typeof id != "string" && typeof id != "number") return false;
-  return "<li class='tg-list-item'>" +
-    "<h4>" + title + "</h4>" +
-    "<input class='tgl tgl-light' id='cb" + id + "' type='checkbox'>" +
-    "<label class='tgl-btn' for='cb" + id + "'></label>" +
-  "</li>";
+  return '<div>' +
+    '<div class="uk-panel uk-panel-box">' +
+      '<div class="uk-panel-badge uk-badge ' + ((state == 0) ? "uk-badge-danger" : "uk-badge-success") + '">' + ((state == 0) ? "拥挤" : "稀疏") + '</div>' +
+      '<div class="uk-panel-teaser">' +
+        '<img src="img/01/' + escape(title) + '.jpg" alt="preview image">' +
+      '</div>' +
+      '<h3 class="uk-panel-title">' + title + '</h3>' +
+      desc +
+    '</div>' +
+  '</div>';
 }
 
 var check_data = ["芙蓉湖", "情人谷", "芙蓉隧道", "海韵理工"];
@@ -93,28 +98,32 @@ function dataIsGet()
   if(check_data)
   {
      clearInterval(int);
-     checkDataHandler(window.parent.toggleLoad);
+     checkDataHandler(function()
+     {
+       $("#usercheck").data("grid").update();
+       window.parent.toggleLoad();
+     });
   }
 }
 
 function checkDataHandler(callback)
 {
   $("#usercheck").empty();
-  for(var i = 0; i<check_data.length; i++)
-  {
-    $("#usercheck").append(getCheckBox(check_data[i], i));
-  }
-
+  check_data.forEach(function(elem, i){$("#usercheck").append(getCheckPanel(check_data[i], "Default content", 1, i));});
+  onCheckListShown();
   if(typeof callback == "function") callback();
 }
 
 function submitData_1()
 {
   user_checked = [];
-  for(var i = 0; i<check_data.length; i++)
+  $("#usercheck").children().each(function(index)
   {
-    if($("#cb" + i).is(":checked")) user_checked.push(check_data[i]);
-  }
+    if($($(this).children()[0]).hasClass("press")) // This panel is pressed (checked)
+    {
+      user_checked.push(check_data[index]);
+    }
+  });
   if(!user_checked.length)
   {
     Notify("<i class='uk-icon-exclamation'></i> 请选择至少一个景点 :)");

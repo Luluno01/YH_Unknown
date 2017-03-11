@@ -1,0 +1,33 @@
+.press
+{
+  animation: press 0.75s forwards cubic-bezier(0, 0.92, 0, 1.16);
+}
+
+.depress
+{
+  animation: depress 0.75s forwards cubic-bezier(0, 0.92, 0, 1.16);
+}
+
+@keyframes press
+{
+  0%
+  {
+    transform: scale(1);
+  }
+  100%
+  {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes depress
+{
+  0%
+  {
+    transform: scale(0.9);
+  }
+  100%
+  {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,8 @@
+#usercheck
+{
+  max-height: calc(100vh - 200px);
+  /*box-sizing: border-box;
+  padding: 10px;
+  overflow-y: auto;*/
+  -webkit-overflow-scrolling: touch;
+}
