@@ -19,7 +19,7 @@
   -ms-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
   -o-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
   animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
-}
+} 
 
 @-webkit-keyframes press
 {
