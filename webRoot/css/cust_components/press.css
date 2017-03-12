@@ -1,11 +1,36 @@
 .press
 {
-  animation: press 0.75s forwards cubic-bezier(0, 0.92, 0, 1.16);
+  display: block;
+  -webkit-animation-name: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -webkit-animation: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -moz-animation: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -ms-animation: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -o-animation: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  animation: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  animation-name: press 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
 }
 
 .depress
 {
-  animation: depress 0.75s forwards cubic-bezier(0, 0.92, 0, 1.16);
+  display: block;
+  -webkit-animation-name: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -webkit-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -moz-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -ms-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  -o-animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+  animation: depress 0.08s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+}
+
+@-webkit-keyframes press
+{
+  0%
+  {
+    transform: scale(1);
+  }
+  100%
+  {
+    transform: scale(0.9);
+  }
 }
 
 @keyframes press
@@ -17,6 +42,18 @@
   100%
   {
     transform: scale(0.9);
+  }
+}
+
+@-webkit-keyframes depress
+{
+  0%
+  {
+    transform: scale(0.9);
+  }
+  100%
+  {
+    transform: scale(1);
   }
 }
 

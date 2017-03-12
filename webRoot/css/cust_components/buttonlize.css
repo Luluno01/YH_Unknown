@@ -1,4 +1,5 @@
 .buttonlize-panel .uk-panel
 {
   cursor: pointer;
+  box-shadow: 1px 1px 10px 0px rgba(197, 197, 197, 0.41);
 }

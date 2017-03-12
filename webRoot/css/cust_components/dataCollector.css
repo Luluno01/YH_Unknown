@@ -1,8 +1,13 @@
 #usercheck
 {
   max-height: calc(100vh - 200px);
-  /*box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px;
-  overflow-y: auto;*/
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar
+{
+  width: 0px;
 }
