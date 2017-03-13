@@ -4,21 +4,155 @@
         <title>Waves example</title>
 
         <link rel="stylesheet" href="webRoot/css/uikit.css">
-        <link rel="stylesheet" href="test/css/waves.min.css" />
+        <link rel="stylesheet" href="test/css/waves.css" />
         <link rel="stylesheet" href="webRoot/css/cust_components/buttonlize.css"/>
         <link rel="stylesheet" href="webRoot/css/cust_components/press.css"/>
 
+        <style media="screen">
+          .press
+          {
+            -webkit-animation-name: press 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            -webkit-animation: press 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            animation: press 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+          }
+
+          .depress
+          {
+            -webkit-animation-name: depress 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            -webkit-animation: depress 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            animation: depress 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+          }
+
+          .press h3
+          {
+            -webkit-animation-name: press-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            -webkit-animation: press-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            animation: press-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+          }
+
+          .depress h3
+          {
+            -webkit-animation-name: depress-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            -webkit-animation: depress-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+            animation: depress-h3 0.3s forwards cubic-bezier(0.91, 1.17, 1, 1.38);
+          }
+
+          @-webkit-keyframes press
+          {
+            0%
+            {
+              color: #000000;
+              background-color: #f5f5f5;
+            }
+            100%
+            {
+              color: #ffffff;
+              background-color: #616161;
+            }
+          }
+
+          @keyframes press
+          {
+            0%
+            {
+              color: #000000;
+              background-color: #f5f5f5;
+            }
+            100%
+            {
+              color: #ffffff;
+              background-color: #616161;
+            }
+          }
+
+          @-webkit-keyframes depress
+          {
+            0%
+            {
+              color: #ffffff;
+              background-color: #616161;
+            }
+            100%
+            {
+              color: #000000;
+              background-color: #f5f5f5;
+            }
+          }
+
+          @keyframes depress
+          {
+            0%
+            {
+              color: #ffffff;
+              background-color: #616161;
+            }
+            100%
+            {
+              color: #000000;
+              background-color: #f5f5f5;
+            }
+          }
+
+          @-webkit-keyframes press-h3
+          {
+            0%
+            {
+              color: #000000;
+            }
+            100%
+            {
+              color: #ffffff;
+            }
+          }
+
+          @keyframes press-h3
+          {
+            0%
+            {
+              color: #000000;
+            }
+            100%
+            {
+              color: #ffffff;
+            }
+          }
+
+          @-webkit-keyframes depress-h3
+          {
+            0%
+            {
+              color: #ffffff;
+            }
+            100%
+            {
+              color: #000000;
+            }
+          }
+
+          @keyframes depress-h3
+          {
+            0%
+            {
+              color: #ffffff;
+            }
+            100%
+            {
+              color: #000000;
+            }
+          }
+
+        </style>
+
         <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
         <script src="webRoot/js/uikit.js"></script>
-        <script src="webRoot/js/cust_core/panelCheckbox.js"></script>
 
     </head>
     <body>
       <div class="uk-container uk-container">
         <button href="#" class="uk-button">Click Here</button>
-        <div id="usercheck" class="uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-4 uk-grid-width-large-1-5 buttonlize-panel" data-uk-grid scroll="no">
+        <div id="usercheck" class="uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-4 uk-grid-width-large-1-5 buttonlize-panel">
           <div>
-            <div class="uk-panel uk-panel-box">
+            <div class="uk-panel uk-panel-box waves-effect">
               <div class="uk-panel-badge uk-badge uk-badge-success">稀疏</div>
               <div class="uk-panel-teaser">
                 <img src="webRoot/img/01/FurongLake.jpg" alt="preview image">
@@ -30,17 +164,29 @@
         </div>
       </div>
     </body>
-    <script type="text/javascript" src="test/js/waves.min.js"></script>
+    <script type="text/javascript" src="test/js/waves.js"></script>
     <script type="text/javascript">
-      function winit()
+      function onCheckListShown()
       {
-        var config =
+        $("#usercheck").children().each(function(index)
         {
-          duration: 300
-        }
-        Waves.attach(".uk-button");
-        Waves.attach(".uk-panel.uk-panel-box");
-        Waves.init(config);
+          $($(this).children()[0]).click(function()
+          {
+            if(!($(this).hasClass("press")))
+            {
+              $(this).removeClass("depress");
+              $(this).addClass("press");
+              return;
+            }
+            if(!($(this).hasClass("depress")))
+            {
+              $(this).removeClass("press");
+              $(this).addClass("depress");
+              return;
+            }
+          });
+        });
       }
+      onCheckListShown();
     </script>
 </html>

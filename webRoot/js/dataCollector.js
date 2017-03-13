@@ -27,8 +27,8 @@ function getGUID()
   return guid;
 }
 
-function toggleAnim(id, anim) { //Not my code
-    $(id).removeClass(anim).addClass(anim).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+function toggleAnim(selector, anim) { //Not my code
+    $(selector).removeClass(anim).addClass(anim).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass(anim);
     });
 };
@@ -77,7 +77,7 @@ function submitData_0()
 function getCheckPanel(data, id)
 {
   return '<div>' +
-    '<div class="uk-panel uk-panel-box" data-ripple>' +
+    '<div class="uk-panel uk-panel-box waves-effect">' +
       '<div class="uk-panel-badge uk-badge ' + ((data[3] == 0) ? "uk-badge-danger" : "uk-badge-success") + '">' + ((data[3] == 0) ? "拥挤" : "稀疏") + '</div>' +
       '<div class="uk-panel-teaser">' +
         '<img src="img/01/' + data[1] + '" alt="preview image">' +
@@ -91,17 +91,6 @@ function getCheckPanel(data, id)
 var check_data = [["芙蓉湖", "FurongLake.jpg", "Default Content", 1], ["情人谷", "Qingren.jpg", "Default Content", 1], ["芙蓉隧道", "FurongTunnel.jpg", "Default Content", 1], ["海韵理工","Haiyun.jpg", "Default Content", 1]];
 var user_checked = [];
 var int_data_get, int_img_com;
-
-function wavesInit()
-{
-  var config =
-  {
-    duration: 320
-  }
-  //Waves.attach(".uk-button");
-  Waves.attach(".uk-panel.uk-panel-box");
-  Waves.init(config);
-}
 
 function dataIsGet()
 {
@@ -120,7 +109,6 @@ function checkDataHandler(callback)
   $("#usercheck").empty();
   check_data.forEach(function(elem, i){$("#usercheck").append(getCheckPanel(check_data[i], i));});
   onCheckListShown();
-  wavesInit();
   if(typeof callback == "function") callback();
 }
 
