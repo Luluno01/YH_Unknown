@@ -11,13 +11,13 @@
 
     <!-- link all the styles -->
     <link rel="stylesheet" href="css/uikit.min.css"/>
-    <link rel="stylesheet" href="css/iconfont.css"/>
+    <link rel="stylesheet" href="css/iconfont/iconfont.css"/>
     <link rel="stylesheet" href="css/components/dotnav.css"/>
     <link rel="stylesheet" href="css/font.css"/>
-    <link rel="stylesheet" href="css/rbutton.css"/>
-    <link rel="stylesheet" href="css/sidemask.css"/>
+    <link rel="stylesheet" href="css/cust_components/rbutton.css"/>
+    <link rel="stylesheet" href="css/cust_components/sidemask.css"/>
     <link rel="stylesheet" href="css/unselectable.css"/>
-    <link rel="stylesheet" href="css/cust_components/waves.css"/>
+    <link rel="stylesheet" href="css/waves/waves.css"/>
     <link rel="stylesheet" href="css/cust_components/buttonlize.css"/>
     <link rel="stylesheet" href="css/cust_components/press.css"/>
     <link rel="stylesheet" href="css/cust_components/dataCollector.css"/>
@@ -25,8 +25,9 @@
     <!-- link all the scripts -->
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/uikit.min.js"></script>
-    <script src="js/cust_components/waves.js"></script>
+    <script src="js/waves/waves.js"></script>
     <script src="js/cust_components/guid.js"></script>
+    <script src="js/cust_core/config.js"></script>
     <script src="js/cust_core/panelCheckbox.js"></script>
     <script src="js/dataCollector.js"></script>
     <script src="js/framecallback.js"></script>
@@ -58,8 +59,8 @@
             <div class="uk-text-center">
               <div class="uk-container uk-container-center">
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
-                <button class="uk-button rbutton-big" data-uk-switcher-item="next" onclick="pushData('gender', 'male');"><i class="uk-icon-mars"></i><p>男</p></button>
-                <button class="uk-button rbutton-big" data-uk-switcher-item="next" onclick="pushData('gender', 'female');"><i class="uk-icon-venus"></i><p>女</p></button>
+                <button class="uk-button rbutton-big uk-margin-small-top" data-uk-switcher-item="next" onclick="pushData('gender', 1);"><i class="uk-icon-mars"></i><p>男</p></button>
+                <button class="uk-button rbutton-big uk-margin-small-top" data-uk-switcher-item="next" onclick="pushData('gender', 2);"><i class="uk-icon-venus"></i><p>女</p></button>
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
               </div>
             </div>
@@ -76,11 +77,11 @@
             <div class="uk-text-center">
               <div class="uk-container uk-container-center">
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
-                <button id="age0" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '1');"><i class="iconfont icon-kid"></i></br>小朋友</button>
-                <button id="age1" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '2');"><i class="iconfont icon-boy"></i></br>小哥</button>
+                <button id="age0" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', 1);"><i class="iconfont icon-kid"></i></br>小朋友</button>
+                <button id="age1" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', 2);"><i class="iconfont icon-boy"></i></br>小哥</button>
                 <p></p>
-                <button id="age2" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '3')"><i class="iconfont icon-manbeard"></i></br>叔叔</button>
-                <button id="age3" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', '4');"><i class="iconfont icon-manold"></i></br>爷爷</button>
+                <button id="age2" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', 3)"><i class="iconfont icon-manbeard"></i></br>叔叔</button>
+                <button id="age3" class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('age', 4);"><i class="iconfont icon-manold"></i></br>爷爷</button>
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
               </div>
             </div>
@@ -97,11 +98,11 @@
             <div class="uk-text-center">
               <div class="uk-container uk-container-center">
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
-                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'alone');submitData_0();"><i class="iconfont icon-man"></i></br>独自</button>
-                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'couple');submitData_0();"><i class="iconfont icon-couple"></i></br>情侣</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 1);submitData_0();"><i class="iconfont icon-man"></i></br>独自</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 2);submitData_0();"><i class="iconfont icon-couple"></i></br>情侣</button>
                 <p></p>
-                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'friend');submitData_0();"><i class="iconfont icon-friend"></i></br>朋友</button>
-                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 'family');submitData_0();"><i class="iconfont icon-home"></i></br>家人</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 3);submitData_0();"><i class="iconfont icon-friend"></i></br>朋友</button>
+                <button class="uk-button rbutton" data-uk-switcher-item="next" onclick="pushData('way', 4);submitData_0();"><i class="iconfont icon-home"></i></br>家人</button>
                 <hr class="sidemask-big" style="width: 80vw;"></hr>
               </div>
             </div>
@@ -137,8 +138,9 @@
             </div>
             <div class="uk-container uk-container-center">
               <div class="uk-grid">
-                <div class="uk-panel uk-width-1-2" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous"><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
-                <div class="uk-panel uk-width-1-2" style="text-align: right;"><button class="uk-button" onclick="submitData_1();">下一步 <i class="uk-icon-arrow-circle-right"></i></button></div>
+                <div class="uk-panel uk-width-1-3" style="text-align: left;"><button class="uk-button" data-uk-switcher-item="previous"><i class="uk-icon-arrow-circle-left"></i> 上一步</button></div>
+                <div class="uk-panel uk-width-1-3" style="text-align: center;"><button class="uk-button uk-margin-right" onclick="refresh();"><i class="uk-icon-refresh"></i> 换一批</button></div>
+                <div class="uk-panel uk-width-1-3" style="text-align: right;"><button class="uk-button" onclick="submitData_1();">下一步 <i class="uk-icon-arrow-circle-right"></i></button></div>
               </div>
             </div>
 

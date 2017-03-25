@@ -24,8 +24,9 @@
     <script src="js/components/notify.js"></script>
     <script type="text/javascript">
       var standby = 0;
-      var fcnt = 2;
+      var fcnt = 2; // The number of <iframe> elements
     </script>
+    <script src="js/cust_core/posTrack.js"></script>
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,6 +59,7 @@
     {
       toggleLoad();
       showFrame(0);
+      userPositionTrack(); // This function is in posTrack.js
     }
 
     function toggleLoad(speed)

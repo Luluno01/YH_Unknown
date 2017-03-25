@@ -11,15 +11,14 @@
 
     <!-- link all the styles -->
     <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/font.css"/>
     <link rel="stylesheet" href="css/unselectable.css"/>
-    <link rel="stylesheet" href="css/map.css"/>
+    <link rel="stylesheet" href="css/cust_components/map.css"/>
 
     <!-- link all the scripts -->
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/uikit.min.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=FVDVXqRFLsYk3I5HemVyrGtKvbWU2p9L"></script>
     <script src="js/framecallback.js"></script>
+    <script src="js/cust_core/config.js"></script>
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,20 +48,39 @@
       </ul>
       <a class="uk-navbar-brand" href="#">Navigation</a>
       <ul class="uk-navbar-nav">
-        <li><a href="#"><i class="uk-icon-map-marker"></i> Pos0</a></li>
+        <li hidden><a href="#modalimg" data-uk-modal="{center:true}"><i class="uk-icon-exclamation"></i> Modal</a></li>
       </ul>
+      <div class="uk-navbar-flip">
+        <ul class="uk-navbar-nav">
+          <li><a href="#" onclick="$('#imgrecog').click();"><i class="uk-icon-camera"></i> 识图</a></li>
+          <input id="imgrecog" type="file" accept="image/*" onchange="imgRecog();" hidden/>
+        </ul>
+      </div>
     </nav>
 
     <div style="height: 40px;">Place holder</div>
 
-    <div class="uk-container uk-container-center" id="map"></div>
+    <iframe src="_map.html" id="map"></iframe>
+
     <nav id="bottomnav" class="uk-navbar">
       <ul class="uk-navbar-nav">
-        <li><a href="#"><i class="uk-icon-map-marker"></i> Pos0</a></li>
-        <li><a href="#"><i class="uk-icon-map-marker"></i> Pos1</a></li>
-        <li><a href="#"><i class="uk-icon-map-marker"></i> Pos2</a></li>
+        <li><a href="#" onclick=""><i class="uk-icon-map-marker"></i> Position</a></li>
       </ul>
     </nav>
+
+    <div class="uk-modal" id="modalimg">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-modal-header">It's...</div>
+        <h1>God.YH</h1>
+        <img src="img/God.YH.jpg" alt="Image recognize result">
+        <p>Default description</p>
+        <div class="uk-text-right">
+          <button class="uk-button" onclick="">到这儿去~</button>
+        </div>
+      </div>
+    </div>
+
   </body>
-  <script type="text/javascript" src="js/map.js"></script>
+  <script type="text/javascript" src="js/cust_core/map.js"></script>
 </html>

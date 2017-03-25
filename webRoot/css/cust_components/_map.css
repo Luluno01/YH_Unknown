@@ -1,0 +1,16 @@
+body
+{
+  margin: 0px;
+  cursor: default;
+}
+
+::-webkit-scrollbar
+{
+  width: 0px;
+}
+
+#map
+{
+  height: 100vh;
+  font-family:"微软雅黑";
+}

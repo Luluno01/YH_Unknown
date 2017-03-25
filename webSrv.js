@@ -38,6 +38,9 @@ var funGetContentType=function(filePath){
                 case ".png":
             contentType="image/png";
             break;
+                case ".svg":
+            contentType="image/svg+xml";
+            break;
                 case ".ico":
             contentType="image/icon";
             break;
