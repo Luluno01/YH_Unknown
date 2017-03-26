@@ -12,5 +12,5 @@ var __USER_POS_UPLOAD__ = __YH_SRV__ + "API/UpLoadPath/";
 var __GET_RECOMMEND_LIST__ = __YH_SRV__ + "API/GetRecommendList/";
 var __IMG_UPLOAD__ = __YH_SRV__ + "API/UpLoadimg/"
 
-var __GET_RECOMMEND_LIST_TIMEOUT__ = SHOW ? 100 : 5000; // 5s
-var __IMG_RECOG_TIMEOUT__ = SHOW ? 100 : 2000; // 2s
+var __GET_RECOMMEND_LIST_TIMEOUT__ = SHOW ? 500 : 5000; // 5s
+var __IMG_RECOG_TIMEOUT__ = SHOW ? 1000 : 2000; // 2s

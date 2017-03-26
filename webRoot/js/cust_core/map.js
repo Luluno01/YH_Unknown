@@ -45,12 +45,12 @@ function imgRecog()
 
 var point = null;
 var BMap = null;
-function onUploadSuccess(show)
+function onUploadSuccess()
 {
-  if(!waiting && !show) return;
-  waiting = false;
-  if(show)
+  if(!waiting && !SHOW) return;
+  if(!img_recog_response.status && SHOW)
   {
+    console.log("Timeout but SHOW == true");
     img_recog_response.responseJSON = {};
     img_recog_response.responseJSON.position = {};
   }
@@ -59,6 +59,7 @@ function onUploadSuccess(show)
     console.log("Image upload successed!");
     img_recog_response.responseJSON = JSON.parse(img_recog_response.responseText);
   }
+  waiting = false;
   Notify("<i class='uk-icon-check'></i> 图片上传成功！ :)");
   if(int_img_recog != -1)
   {
@@ -104,7 +105,7 @@ function onUploadFailed(XMLHttpRequest, textStatus, errorThrown)
   console.log("Image upload failed!");
   console.log("Error type: " + textStatus);
   // Upload failed
-  onUploadSuccess(SHOW); // For show
+  onUploadSuccess(); // For show
 }
 
 var timer = null;

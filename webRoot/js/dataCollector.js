@@ -400,7 +400,7 @@ function refresh()
     dataType: "json",
     data: JSON.stringify(user_grade)
   });
-  user_grade = {"site": {}};
+  user_grade.site = {};
   reget_response = $.ajax(
   {
     url: __GET_RECOMMEND_LIST__,
