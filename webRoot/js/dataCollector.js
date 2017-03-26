@@ -1,40 +1,147 @@
 //YH_Unknown data collector
 
 var DEFAULT_POS_INFO =
-{
-  "芙蓉湖":
+[
   {
-    "point": [118.105199, 24.442699],
-    "img": "img/01/FurongLake.jpg",
-    "tags": ["天鹅", "湖", "水", "好吃"],
-    "desc": "Default content",
-    "popular": 100
+    "芙蓉湖":
+    {
+      "point": [118.105199, 24.442699],
+      "img": "img/01/FurongLake.jpg",
+      "tags": ["天鹅", "湖", "水", "好吃"],
+      "desc": "Default content",
+      "popular": 100
+    },
+    "情人谷":
+    {
+      "point": [118.11057, 24.443525],
+      "img": "img/01/Qingren.jpg",
+      "tags": ["情人", "ff"],
+      "desc": "Default content",
+      "popular": 50
+    },
+    "芙蓉隧道":
+    {
+      "point": [118.109208, 24.441551],
+      "img": "img/01/FurongTunnel.jpg",
+      "tags": ["隧道", "涂鸦"],
+      "desc": "Default content",
+      "popular": 80
+    },
+    "海韵理工":
+    {
+      "point": [118.120496, 24.436422],
+      "img": "img/01/Haiyun.jpg",
+      "tags": ["海韵园", "教学楼", "辣鸡"],
+      "desc": "Default content",
+      "popular": 0
+    }
   },
-  "情人谷":
   {
-    "point": [118.11057, 24.443525],
-    "img": "img/01/Qingren.jpg",
-    "tags": ["情人", "ff"],
-    "desc": "Default content",
-    "popular": 50
+    "钟林美广场":
+    {
+      "point": [118.100332, 24.443289],
+      "img": "img/02/zonglinmei.jpg",
+      "tags": ["天鹅", "湖", "水", "好吃"],
+      "desc": "Default content",
+      "popular": 100
+    },
+    "嘉庚主楼":
+    {
+      "point": [118.103545, 24.443847],
+      "img": "img/02/jiageng.jpg",
+      "tags": ["情人", "ff"],
+      "desc": "Default content",
+      "popular": 50
+    },
+    "科艺中心":
+    {
+      "point": [118.10499, 24.44195],
+      "img": "img/02/keyizhongxin.jpg",
+      "tags": ["隧道", "涂鸦"],
+      "desc": "Default content",
+      "popular": 80
+    },
+    "演武场":
+    {
+      "point": [118.101674, 24.442273],
+      "img": "img/02/yanwuchang.jpg",
+      "tags": ["海韵园", "教学楼", "辣鸡"],
+      "desc": "Default content",
+      "popular": 0
+    }
   },
-  "芙蓉隧道":
   {
-    "point": [118.109208, 24.441551],
-    "img": "img/01/FurongTunnel.jpg",
-    "tags": ["隧道", "涂鸦"],
-    "desc": "Default content",
-    "popular": 80
+    "鲁迅纪念馆":
+    {
+      "point": [118.102462, 24.44253],
+      "img": "img/02/luxunjinian.jpg",
+      "tags": ["天鹅", "湖", "水", "好吃"],
+      "desc": "Default content",
+      "popular": 100
+    },
+    "南光楼群":
+    {
+      "point": [118.105207, 24.440337],
+      "img": "img/02/nanguang.jpg",
+      "tags": ["情人", "ff"],
+      "desc": "Default content",
+      "popular": 50
+    },
+    "谢希德雕像":
+    {
+      "point": [118.108045, 24.440477],
+      "img": "img/02/xiexide.jpg",
+      "tags": ["隧道", "涂鸦"],
+      "desc": "Default content",
+      "popular": 80
+    },
+    "白城沙滩":
+    {
+      "point": [118.109852, 24.437976],
+      "img": "img/02/baichengshatan.jpg",
+      "tags": ["海韵园", "教学楼", "辣鸡"],
+      "desc": "Default content",
+      "popular": 0
+    }
   },
-  "海韵理工":
+
   {
-    "point": [118.120496, 24.436422],
-    "img": "img/01/Haiyun.jpg",
-    "tags": ["海韵园", "教学楼", "辣鸡"],
-    "desc": "Default content",
-    "popular": 0
-  }
-};
+    "文庆亭":
+    {
+      "point": [118.102386, 24.444653],
+      "img": "img/02/wenqingting.jpg",
+      "tags": ["天鹅", "湖", "水", "好吃"],
+      "desc": "Default content",
+      "popular": 100
+    },
+    "白城看台":
+    {
+      "point": [118.109747, 24.438527],
+      "img": "img/02/graph.png",
+      "tags": ["情人", "ff"],
+      "desc": "Default content",
+      "popular": 50
+    },
+    "群贤楼群":
+    {
+      "point": [118.102075, 24.442788],
+      "img": "img/02/qunxian.jpg",
+      "tags": ["隧道", "涂鸦"],
+      "desc": "Default content",
+      "popular": 80
+    },
+    "湖心岛":
+    {
+      "point": [118.105237,24.443118],
+      "img": "img/02/huxindao.jpg",
+      "tags": ["海韵园", "教学楼", "辣鸡"],
+      "desc": "Default content",
+      "popular": 0
+    }
+  },
+];
+
+var default_pos_info_loop = -1;
 
 function onShown()
 {
@@ -163,7 +270,7 @@ function getCheckPanel(name, data, id)
     '<div class="uk-panel uk-panel-box waves-effect">' +
       '<div class="uk-panel-badge uk-badge ' + ((data.popular == 0) ? "uk-badge-danger" : "uk-badge-success") + '">' + ((data.popular == 0) ? "Hot" : "推荐") + '</div>' +
       '<div class="uk-panel-teaser">' +
-        '<img src="' + (position_info == DEFAULT_POS_INFO ? "" : __YH_IMG_URL__) + data.img + '" alt="preview image">' +
+        '<img src="' + (position_info == DEFAULT_POS_INFO[default_pos_info_loop] ? "" : __YH_IMG_URL__) + data.img + '" alt="preview image">' +
       '</div>' +
       '<h3 class="uk-panel-title">' + name + '</h3>' +
       (data.des || name) +
@@ -191,10 +298,11 @@ function dataIsGet()
   {
     timer = (new Date()).getTime();
   }
-  if((new Date()).getTime() - timer > 10000) // Timeout
+  if((new Date()).getTime() - timer > __GET_RECOMMEND_LIST_TIMEOUT__) // Timeout
   {
     console.log("Timeout at dataCollector.js dataIsGet().");
-    position_info = DEFAULT_POS_INFO;
+    default_pos_info_loop = (default_pos_info_loop + 1) % DEFAULT_POS_INFO.length
+    position_info = DEFAULT_POS_INFO[default_pos_info_loop];
     console.log(position_info);
     timer = null;
     if(int_data_get != -1)
@@ -292,6 +400,7 @@ function refresh()
     dataType: "json",
     data: JSON.stringify(user_grade)
   });
+  user_grade = {"site": {}};
   reget_response = $.ajax(
   {
     url: __GET_RECOMMEND_LIST__,
@@ -301,10 +410,10 @@ function refresh()
     dataType: "json",
     success: function()
     {
-      int_data_get = setInterval("dataIsGet();", 1000);
       console.log("Reco list reget. :)");
     }
   });
+  int_data_get = setInterval("dataIsGet();", 1000);
   reco_response = reget_response;
 }
 

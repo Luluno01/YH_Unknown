@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>Navigation</title>
+    <title>Navigation - YH_Unknown</title>
 
     <link href="/favicon.ico" rel="shortcut icon">
 
@@ -48,11 +48,12 @@
       </ul>
       <a class="uk-navbar-brand" href="#">Navigation</a>
       <ul class="uk-navbar-nav">
-        <li hidden><a href="#modalimg" data-uk-modal="{center:true}"><i class="uk-icon-exclamation"></i> Modal</a></li>
+        <li hidden><a href="#modalimg" data-uk-modal="{center:true}" id="modaltrigger"><i class="uk-icon-exclamation"></i> Modal</a></li>
+        <li><a href="#"><i class="uk-icon-weibo"></i> 微博登录</a></li>
       </ul>
       <div class="uk-navbar-flip">
         <ul class="uk-navbar-nav">
-          <li><a href="#" onclick="$('#imgrecog').click();"><i class="uk-icon-camera"></i> 识图</a></li>
+          <li><a href="#" onclick="$('#imgrecog').click();"><i class="uk-icon-camera"></i> What's this</a></li>
           <input id="imgrecog" type="file" accept="image/*" onchange="imgRecog();" hidden/>
         </ul>
       </div>

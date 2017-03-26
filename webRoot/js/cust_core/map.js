@@ -1,4 +1,4 @@
-
+var Notify = window.parent.UIkit.notify;
 
 function onShown()
 {
@@ -38,19 +38,28 @@ function imgRecog()
   });
   waiting = true;
 
-  int_img_recog = setInterval("uploadTimeoutListener(10000)", 200);
+  int_img_recog = setInterval("uploadTimeoutListener(" + __IMG_RECOG_TIMEOUT__ + ")", 200);
 
   $("#imgrecog").val("");
 }
 
 var point = null;
 var BMap = null;
-function onUploadSuccess()
+function onUploadSuccess(show)
 {
-  if(!waiting) return;
+  if(!waiting && !show) return;
   waiting = false;
-  console.log("Image upload successed!");
-  img_recog_response.responseJSON = JSON.parse(img_recog_response.responseText);
+  if(show)
+  {
+    img_recog_response.responseJSON = {};
+    img_recog_response.responseJSON.position = {};
+  }
+  else
+  {
+    console.log("Image upload successed!");
+    img_recog_response.responseJSON = JSON.parse(img_recog_response.responseText);
+  }
+  Notify("<i class='uk-icon-check'></i> 图片上传成功！ :)");
   if(int_img_recog != -1)
   {
     clearInterval(int_img_recog);
@@ -64,12 +73,13 @@ function onUploadSuccess()
   }
   // Upload successed
   var modal = UIkit.modal("#modalimg");
+  // $("#modaltrigger").click();
   modal.show();
   $("#modalimg > div > h1").html(img_recog_response.responseJSON.name || "God.YH");
   $("#modalimg > div > img").attr("src", img_recog_response.responseJSON.img ? (__YH_IMG_URL__ + img_recog_response.responseJSON.img) : "img/God.YH.jpg");
   $("#modalimg > div > p").html(img_recog_response.responseJSON.description || "YH大神带你装逼带你飞");
   BMap = BMap || window.frames[0].BMap;
-  point = new BMap.Point(Number(img_recog_response.responseJSON.position.lng), Number(img_recog_response.responseJSON.position.lat));
+  point = new BMap.Point(Number(img_recog_response.responseJSON.position.lng || "118.10"), Number(img_recog_response.responseJSON.position.lat || "24.46"));
   $("#modalimg > div > div.uk-text-right > button").click(function()
   {
     window.frames[0].walkNav(point);
@@ -81,6 +91,10 @@ function onUploadFailed(XMLHttpRequest, textStatus, errorThrown)
 {
   if(!waiting) return;
   waiting = false;
+  if(!SHOW)
+  {
+    Notify("<i class='uk-icon-close'></i> 图片上传失败！ :(");
+  }
   if(int_img_recog != -1)
   {
     clearInterval(int_img_recog);
@@ -90,6 +104,7 @@ function onUploadFailed(XMLHttpRequest, textStatus, errorThrown)
   console.log("Image upload failed!");
   console.log("Error type: " + textStatus);
   // Upload failed
+  onUploadSuccess(SHOW); // For show
 }
 
 var timer = null;
