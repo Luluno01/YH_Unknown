@@ -227,7 +227,7 @@ function submitData_0()
   setCookie("age", user_selection.age);
   setCookie("way", user_selection.way);
   user_selection.GUID = getGUID().ToString();
-  setCookie("GUID", user_selection.GUID);
+  setCookie("GUID", user_selection.GUID, 365);
   user_grade.GUID = user_selection.GUID;
 
   update_response = $.ajax(
