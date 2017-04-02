@@ -13,11 +13,26 @@
     <link rel="stylesheet" href="webRoot/css/uikit.min.css" />
     <link rel="stylesheet" href="webRoot/css/components/sticky.css" />
     <link rel="stylesheet" href="webRoot/css/unselectable.css"/>
+    <style media="screen">
+      .barrage-window
+      {
+        position: relative;
+        overflow: hidden;
+      }
+      .barrage-text
+      {
+        position: absolute;
+        transition: left 2s;
+        -moz-transition: left 2s; /* Firefox 4 */
+        -webkit-transition: left 2s; /* Safari and Chrome */
+        -o-transition: left 2s; /* Opera */
+        z-index: 1;
+      }
+    </style>
 
     <!-- link all the scripts -->
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="webRoot/js/uikit.min.js"></script>
-    <script src="webRoot/js/components/sticky.js"></script>
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,56 +44,24 @@
   </head>
   <body>
     <div class="uk-container uk-container-center">
-      <h1>adsfasdf</h1>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <div class="" data-uk-sticky>
-        <h1>STICKY</h1>
+      <h1>Barrage Test</h1>
+      <p>YH_Unknown project</p>
+      <div id="barrage" class="barrage-window" style="background-color: #949494; height: 500px;">
+        <div class="barrage-text">
+          <p>fasdf</p>
+        </div>
       </div>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
-      <p>jasdfd</p>
     </div>
   </body>
+  <script type="text/javascript">
+    // var barrage_text =
+    // [
+    //   "ajsdfksad",
+    //   "ejox",
+    //   "aiuqdfz",
+    //   "poqiweur"
+    // ];
+    //
+    // $("#barrage").append('<div class="barrage-text">lalala</div>');
+  </script>
 </html>

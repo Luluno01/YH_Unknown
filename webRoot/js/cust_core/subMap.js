@@ -17,7 +17,7 @@ var map = null;
 
 function onShown()
 {
-  console.log("_map.html shown.");
+  console.log("subMap.html shown.");
 
   position_info = window.parent.parent.frames[0].position_info;
   for(var key in position_info)
