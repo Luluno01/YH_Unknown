@@ -1,0 +1,19 @@
+.uk-grid
+{
+  margin-left: inherit;
+}
+.uk-comment-avatar
+{
+  border-radius: 50%;
+  width: 50px;
+}
+
+.uk-subnav-line
+{
+  margin-left: 0px;
+}
+
+.uk-subnav-line > li:nth-child(1)
+{
+  padding-left: 0px;
+}

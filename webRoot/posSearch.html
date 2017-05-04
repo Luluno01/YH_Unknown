@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="pragma" centent="no-cache">
+    <meta http-equiv="Cache-Control" centent="no-cache, must-revalidate">
+    <meta http-equiv="expires" centent="0">
+
+    <title></title>
+
+    <!-- link all the styles -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/cust_components/font.css"/>
+    <link rel="stylesheet" href="css/waves/waves.css"/>
+    <link rel="stylesheet" href="css/cust_components/unselectable.css"/>
+    <link rel="stylesheet" href="css/cust_components/posSearch.css"/>
+    <link rel="stylesheet" href="css/cust_components/noScrollbar.css"/>
+    <link rel="stylesheet" href="css/cust_components/buttonlize.css"/>
+    <link rel="stylesheet" href="css/cust_components/press.css"/>
+
+    <!-- link all the scripts -->
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/waves/waves.js"></script>
+    <script src="js/cust_core/config.js"></script>
+    <script src="js/framecallback.js"></script>
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body class="unselectable" style="overflow: hidden;">
+    <nav class="" style="background: #eee; color: #444; height: 40px;">
+      <form id="search" class="uk-form" style="width: 100%;">
+        <input type="text" placeholder="搜索" style="width: 100%; border-radius: 50em;">
+      </form>
+      <div class="uk-margin-right uk-navbar-content" style="position: absolute; top: 0px; right: 0px; z-index: 1;">
+        <i class="uk-icon-map-marker uk-margin-small-right"></i>
+        <i class="uk-icon-search"></i>
+      </div>
+    </nav>
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-small-bottom" style="height: calc(100vh - 60px); overflow-y: scroll;">
+      <div id="usercheck" class="uk-grid uk-grid-width-1-1 buttonlize-panel" data-uk-grid-margin>
+        <div class="uk-panel uk-panel-box waves-effect">
+          <div class="uk-panel-badge uk-badge">Rua</div>
+          <img class="uk-margin-small-bottom" src="img/02/furonghu.jpg" alt=""style="min-width: 100%;">
+          <h3 class="uk-panel-title">芙蓉湖</h3>
+          <p>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        </div>
+        <div class="uk-panel uk-panel-box waves-effect">
+          <div class="uk-panel-badge uk-badge">Rua</div>
+          <img class="uk-margin-small-bottom" src="img/02/furonglouqun.jpg" alt=""style="min-width: 100%;">
+          <h3 class="uk-panel-title">芙蓉楼群</h3>
+          <p>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        </div>
+        <div class="uk-panel uk-panel-box waves-effect">
+          <div class="uk-panel-badge uk-badge">Rua</div>
+          <img class="uk-margin-small-bottom" src="img/02/luxun.jpg" alt=""style="min-width: 100%;">
+          <h3 class="uk-panel-title">鲁迅像</h3>
+          <p>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        </div>
+        <div class="uk-panel uk-panel-box waves-effect">
+          <div class="uk-panel-badge uk-badge">Rua</div>
+          <img class="uk-margin-small-bottom" src="img/02/qunxian.jpg" alt=""style="min-width: 100%;">
+          <h3 class="uk-panel-title">群贤楼群</h3>
+          <p>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        </div>
+        <div class="uk-panel uk-panel-box waves-effect">
+          <div class="uk-panel-badge uk-badge">Rua</div>
+          <img class="uk-margin-small-bottom" src="img/02/shangxian.jpg" alt=""style="min-width: 100%;">
+          <h3 class="uk-panel-title">上弦场</h3>
+          <p>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+      $("#search").addClass("uk-navbar-content");
+      $("#usercheck").children().click(function(index)
+      {
+        if(!($(this).hasClass("press")))
+        {
+          $(this).removeClass("depress");
+          $(this).addClass("press");
+          return;
+        }
+        if(!($(this).hasClass("depress")))
+        {
+          $(this).removeClass("press");
+          $(this).addClass("depress");
+          return;
+        }
+      });
+    });
+  </script>
+</html>
