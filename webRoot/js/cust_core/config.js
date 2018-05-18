@@ -3,6 +3,7 @@ var SHOW = true;
 var __YH_SRV_LIST__ =
 [
   "server.zyh.science:8080",
+  "server.zyh.science:8080"
 ];
 var __YH_SRV__ = __YH_SRV_LIST__[1];
 var __YH_IMG_URL__ = __YH_SRV__ + "static/";
