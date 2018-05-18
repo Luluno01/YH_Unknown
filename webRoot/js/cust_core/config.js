@@ -2,8 +2,7 @@ var DEBUG = true;
 var SHOW = true;
 var __YH_SRV_LIST__ =
 [
-  "http://tourguide.tpddns.cn:8888/",
-  "http://120.25.213.220:8888/"
+  "server.zyh.science:8080",
 ];
 var __YH_SRV__ = __YH_SRV_LIST__[1];
 var __YH_IMG_URL__ = __YH_SRV__ + "static/";
