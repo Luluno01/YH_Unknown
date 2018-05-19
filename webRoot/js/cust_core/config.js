@@ -2,10 +2,10 @@ var DEBUG = true;
 var SHOW = true;
 var __YH_SRV_LIST__ =
 [
-  "server.zyh.science:8080/",
-  "server.zyh.science:8080/"
+  "http://server.zyh.science:8080/",
+  "http://server.zyh.science:8080/"
 ];
-var __YH_SRV__ = __YH_SRV_LIST__[1];
+var __YH_SRV__ = __YH_SRV_LIST__[0];
 var __YH_IMG_URL__ = __YH_SRV__ + "static/";
 var __USER_INFO_UPDATE__ = __YH_SRV__ + "API/UserInfoUpdate/";
 var __USER_POS_UPLOAD__ = __YH_SRV__ + "API/UpLoadPath/";
